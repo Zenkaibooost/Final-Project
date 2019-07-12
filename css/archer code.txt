@@ -1,0 +1,132 @@
+var lineX= 277;
+var lineX2= 257;
+var lineX3= 277;
+
+function setup(){   
+   createCanvas(800, 400);
+   //sets units of angles to be in degrees for arc
+    background(210);
+   angleMode(DEGREES);
+}
+
+function draw(){
+    drawArcher();
+    drawArrow();
+    drawArrow();
+}
+function drawArcher(){
+   background(210); 
+   strokeWeight(25);
+   stroke(0);
+   fill(0);
+   line(15,110,200,110);
+   rect(80,110,40,80);
+   line(50,260,80,200);
+   line(120,200,150,260);
+   line(15,110,35,90);
+   strokeWeight(5);
+
+   fill(0);
+   ellipse (100,70,50);
+   noFill();
+   stroke("brown");
+   strokeWeight(10);
+   arc(179,110,70,90,-3 * 270, 90, OPEN);
+   stroke("red");
+   strokeWeight(4);
+   line(185,65,40,90);
+   line(185,155,40,90);                             
+  
+    
+}
+
+function drawArrow()
+{ 
+    stroke("white");
+    line (lineX,100,lineX2, 110);
+    line (lineX, 110,lineX3,110);
+    line (lineX, 120, lineX3, 110);
+
+    lineX= lineX + 0;
+    lineX2= lineX2 +0;
+    lineX3= lineX3 + 0;
+
+
+let halfPointX = 500 /2;
+let halfPointY = 400 /2;
+let horizontal = false;
+let x = 0;
+let y = halfPointY;
+let i = 0;
+let speed = 5; 
+
+function setup(){
+    createCanvas(500,400); 
+ 
+}
+
+
+function draw(){
+     background(200); 
+     ellipse (x,y,25,25);
+      
+    
+    
+    if(x === 500){
+        
+        speed = -5;
+        
+        
+    }else if( x === 0){
+        
+        speed = 5;
+        
+        
+        
+    }
+    
+
+    
+    if(x === halfPointX && !horizontal){
+        if(i % 2){
+            
+           horizontal = true;
+           
+        }
+       i++;
+       
+       
+    }else if(y === halfPointY && horizontal){
+        if(i % 2){
+            
+           horizontal = false;
+           i++;
+        }
+        
+    }
+
+    if(horizontal === false){
+        
+        
+        x = x + speed;
+    
+    }else{
+        
+        if(y === 0){
+            speed = 5;
+            
+        }else if( y === 400 ){
+            speed = -5;
+            i++;
+        }
+        
+        console.log(i);
+        y = y + speed;
+    
+    }
+  
+}
+
+
+}
+
